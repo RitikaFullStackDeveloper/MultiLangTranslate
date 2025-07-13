@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Virat Kohli Bio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #759ec7);
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      background-color: rgb(64, 43, 43);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #ffffff;
+    }
+
+    .controls {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    select, button {
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    select:hover, button:hover {
+      background-color: #007bff;
+      color: white;
+      border-color: #007bff;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    @media (max-width: 600px) {
+      .controls {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      select, button {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 id="heading">Virat Kohli</h1>
+    <p id="information">
+      Virat Kohli (born 5 November 1988) is an Indian international cricketer and the former captain of the Indian national cricket team.
+      He is a right-handed batsman and an occasional medium-fast bowler. He currently represents Royal Challengers Bengaluru in the IPL
+      and Delhi in domestic cricket. Kohli is widely regarded as one of the greatest batters of all time.
+      He also holds the record for most centuries in ODI cricket and is second in the list of most international centuries,
+      and is the highest run-scorer in IPL. Kohli was a member of the Indian team that won the 2011 Cricket World Cup,
+      2013 ICC Champions Trophy, 2024 T20 World Cup and 2025 Champions Trophy. He captained India to win the ICC Test mace
+      three consecutive times in 2017, 2018, and 2019.
+    </p>
+
+    <div class="controls">
+      <select name="language" id="select-lang">
+        <option value="english">English</option>
+        <option value="marathi">Marathi</option>
+        <option value="hindi">Hindi</option>
+        <option value="spanish">Spanish</option>
+      </select>
+    </div>
+    <button onclick="translatelan()">Translate</button>
+  </div>
+
+  <script src="./english.js"></script>
+  <script src="./marathi.js"></script>
+  <script src="./hindi.js"></script>
+  <script src="./spanish.js"></script>
+
+  <script>
+    const translations = {
+      english: englishData,
+      marathi: marathiData,
+      hindi: hindiData,
+      spanish: spanishData
+    };
+
+
+    function translatelan() {
+      const selectedLanguage = document.getElementById("select-lang").value;
+      const result = translations[selectedLanguage];
+      document.getElementById("heading").innerHTML = result.heading;
+      document.getElementById("information").innerHTML = result.information;
+    }
+  </script>
+</body>
+</html>
